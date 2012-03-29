@@ -1,0 +1,15 @@
+<h1>Tests#index</h1>
+<p>Find me in app/views/tests/index.html.erb</p>
+
+<%= file_upload_input "#upload",
+                      data: {
+                        url: "/abcfc",
+                        type: "post",
+                        data_type: "json"
+                      },
+                      add: {
+                        append_to: "#photos",
+                        template: "#template-loading",
+                        context: true
+                      } %>
+
