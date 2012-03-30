@@ -42,7 +42,7 @@ module FileUploadRails
         # Aplica o template ao elemento html ou ao context
         callback = capture do
           "$('#{id}').bind('fileupload#{callback_name}', function(e,data){\n" +
-            "\tvar template = $.tmpl('#{options.delete(:template)}', data);\n" +
+            "\tvar template = $('#{options.delete(:template)}').tmpl(data);\n" +
             "\tvar element = #{element}" +
             apply_template(options) +
             block_code +

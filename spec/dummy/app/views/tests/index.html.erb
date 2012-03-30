@@ -3,12 +3,15 @@
 
 <%= file_upload_input "#upload",
                       data: {
-                        url: "/abcfc",
+                        url: "/teste/save",
                         type: "post",
                         data_type: "json"
                       },
-                      add: {
-                        append_to: "#photos",
+                      change: {
+                        append_to: "#teste",
                         template: "#template-loading"
                       } %>
+
+<ul id="teste">
+</ul>
 
