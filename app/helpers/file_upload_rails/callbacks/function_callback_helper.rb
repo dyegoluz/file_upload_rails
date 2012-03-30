@@ -27,6 +27,15 @@ module FileUploadRails
         # Esse elemento pode ser um já existente ou um criado e enviado como context na requisição ajax
         element = generate_jquery_element(options[:append_to] || options[:prepend_to] || options[:exchange])
 
+        # Se um bloco for passado como parametro da função
+        # Captura esse bloco para exibi-lo no callback
+        # Se não retorna apenas uma string vazia
+        if block_given?
+          block_code = capture(&block)
+        else
+          block_code = ""
+        end
+
         # Captura o código javascript que será retornado.
         # Código usar o bind para adicionar o callback ao uploader
         # Cria um template usando template jquery
@@ -36,7 +45,7 @@ module FileUploadRails
             "\tvar template = $.tmpl('#{options.delete(:template)}', data);\n" +
             "\tvar element = #{element}" +
             apply_template(options) +
-            capture(&block) +
+            block_code +
           "});\n"
         end
 
@@ -62,7 +71,7 @@ module FileUploadRails
 
         # Se não apenas aplica o template ao elemento
         else
-          "\t" + applied_template
+          "\t" + applied_template + "\n"
         end
       end
 
