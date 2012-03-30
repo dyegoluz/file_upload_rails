@@ -10,9 +10,13 @@
 
 <%= yield %>
 
-<script id="template-loading" type="text/x-jquery-tmpl">
-  testando
-</script>
+<%= file_upload_template "template-loading", "file_upload_templates/teste" %>
+
+<%= file_upload_template "template-teste" do %>
+  <div id="Teste">
+    Testannnnnnnnnnnnnnnnndo
+  </div>
+<% end %>
 
 <%= file_upload_initialize %>
 </body>

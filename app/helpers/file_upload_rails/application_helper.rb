@@ -4,6 +4,7 @@ module FileUploadRails
     # Inclui todos os outros helpers basicos
     include FileUploadRails::InitializeHelper
     include FileUploadRails::InputHelper
+    include FileUploadRails::TemplateHelper
 
     # Inclui todos os helpers que inicializam os callbacks
     include FileUploadRails::Callbacks::FunctionCallbackHelper
@@ -11,7 +12,6 @@ module FileUploadRails
     include FileUploadRails::Callbacks::ChangeCallbackHelper
     include FileUploadRails::Callbacks::DoneCallbackHelper
     include FileUploadRails::Callbacks::FailCallbackHelper
-
 
     private
 
